@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-
+//use App\Http\Resources\CategoryResource;
 class PostResource extends JsonResource
 {
     /**
@@ -23,6 +23,9 @@ class PostResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'category' => $this->category->name,
+            // source: https://stackoverflow.com/a/47710930
+            //'category'    => new CategoryResource($this->category),
+            // When many source: https://stackoverflow.com/a/56445220
         ];
     }
 }
